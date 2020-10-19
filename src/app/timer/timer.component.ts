@@ -9,6 +9,12 @@ export class TimerComponent implements OnInit {
 
   minTime: number;
   maxTime: number;
+  minHrs: number = 0;
+  minMin: number = 0;
+  minSec: number = 0;
+  maxHrs: number = 0;
+  maxMin: number = 0;
+  maxSec: number = 0;
   interval: number;
   running: boolean = false;
 
@@ -20,7 +26,6 @@ export class TimerComponent implements OnInit {
   buttonClicked(): void {
 
     if (this.running == false){
-      
     }
   }
 
