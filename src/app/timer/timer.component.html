@@ -1,4 +1,6 @@
 <style>
+
+    
     .numInput {
         width: 35px;
     }
@@ -8,24 +10,30 @@
 </style>
 
 
-<div>
-    Minimum Time:
-    <form>
-        <label for="hrs">Hours: </label>
-        <input id="hrs" class="numInput" type="number">
-        <label for="min"> Minues: </label>
-        <input id="min" class="numInput" type="number" max="59">
-        <Label for="sec"> Seconds: </Label>
-        <input id="sec" class="numInput" type="number" max="59">
-    </form>
+<div style="text-align: center;">
+    <div id="timeInput">
+        <h4>Minimum Time:</h4>
+        <form id="minTime">
+            <label for="minHrs">Hours: </label>
+            <input id="minHrs" class="numInput" type="number" value="0">
+            <label for="minMin"> Minues: </label>
+            <input id="minMin" class="numInput" type="number" max="59" value="0">
+            <Label for="minSec"> Seconds: </Label>
+            <input id="minSec" class="numInput" type="number" max="59" value="0">
+        </form>
+        <br />
+        <h4>Maximum Time:</h4>
+        <form id="maxTime">
+            <label for="maxHrs">Hours: </label>
+            <input id="maxHrs" class="numInput" type="number" value="0">
+            <label for="maxMin"> Minues: </label>
+            <input id="maxMin" class="numInput" type="number" max="59" value="0">
+            <Label for="maxSec"> Seconds: </Label>
+            <input id="maxSec" class="numInput" type="number" max="59" value="0">
+        </form>
+    </div>
     <br />
-    Maximum Time:
-    <form>
-        <label for="hrs">Hours: </label>
-        <input id="hrs" class="numInput" type="number">
-        <label for="min"> Minues: </label>
-        <input id="min" class="numInput" type="number" max="59">
-        <Label for="sec"> Seconds: </Label>
-        <input id="sec" class="numInput" type="number" max="59">
-    </form>
+    <div id="button" class="circle" (click)="buttonClicked()">
+        Start
+    </div>
 </div>
