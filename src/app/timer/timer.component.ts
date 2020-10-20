@@ -7,6 +7,7 @@ import { Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
 })
 export class TimerComponent implements OnInit {
 
+  //important variables
   minTime: number;
   maxTime: number;
   minHrs: number = 0;
@@ -16,21 +17,49 @@ export class TimerComponent implements OnInit {
   maxMin: number = 0;
   maxSec: number = 0;
   interval: number;
+  reps: number = 1;
   running: boolean = false;
+  message: string;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  fixBigNumbers(): void {
+  }
+
+  //when the button is clicked, convert inputs to milliseconds
+  //make sure minTime is less than maxTime
+  //if it passes, run the timer
   buttonClicked(): void {
 
     if (this.running == false){
+      this.minTime = this.getTimeValue(this.minHrs, this.minMin, this.minSec);
+      this.maxTime = this.getTimeValue(this.maxHrs, this.maxMin, this.maxSec);
+      if (this.minTime > this.maxTime){
+        this.message = "The minimum time is greater than the maximum time!";
+      }
+      else {
+        this.runTimer;
+      }
     }
   }
 
-  getTimeValue(hrs: number, min: number, sec: number): void {
+  //this one will convert hours, minutes, and seconds
+  //to a number of milliseconds
+  getTimeValue(hrs: number, min: number, sec: number): number {
+    //figure this out
+    return;
+  }
 
+  //for range of this.reps
+  //create a random number between min and max time
+  //set the timer off after that number of milliseconds
+  runTimer(): void {
+    for (let i = 0; i < this.reps; i++){
+      //the time stuff goes here
+    }
   }
 
 }
