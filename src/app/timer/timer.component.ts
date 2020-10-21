@@ -49,8 +49,11 @@ export class TimerComponent implements OnInit {
   //this one will convert hours, minutes, and seconds
   //to a number of milliseconds
   getTimeValue(hrs: number, min: number, sec: number): number {
-    //figure this out
-    return;
+    let total: number = 0;
+    total += hrs*3600000;
+    total += min*60000;
+    total += sec*1000;
+    return total;
   }
 
   //for range of this.reps

@@ -2,11 +2,9 @@
 
     
     .numInput {
-        width: 35px;
+        width: 45px;
     }
-    #hrs {
-        width: 50px;
-    }
+
 </style>
 
 
@@ -15,7 +13,7 @@
         <h4>Minimum Time:</h4>
         <form id="minTime">
             <label for="minHrs">Hours: </label>
-            <input id="minHrs" [(ngModel)]="minHrs" name="minHrs" class="numInput" type="number" min="0" value="0">
+            <input id="minHrs" [(ngModel)]="minHrs" name="minHrs" class="numInput" type="number" min="0" max="99" value="0">
             <label for="minMin"> Minues: </label>
             <input id="minMin" [(ngModel)]="minMin" name="minMin" class="numInput" type="number" min="0" max="59" value="0">
             <Label for="minSec"> Seconds: </Label>
