@@ -27,8 +27,14 @@
             <label for="maxMin"> Minutes: </label>
             <input id="maxMin" [(ngModel)]="maxMin" name="maxMin" class="numInput" type="number" min="0" max="59" value="0">
             <Label for="maxSec"> Seconds: </Label>
-        <input id="maxSec" [(ngModel)]="maxSec" name="maxSec" class="numInput" type="number" min="0" max="59" value="0">
+            <input id="maxSec" [(ngModel)]="maxSec" name="maxSec" class="numInput" type="number" min="0" max="59" value="0">
+            <label for="reps"> Number of intervals: </label>
+            <input id="reps" [(ngModel)]="reps" name="reps" class="numInput" type="number" min="1" max="99" value="1">
         </form>
+    </div>
+    <br />
+    <div>
+        <h5>{{ message }}</h5>
     </div>
     <br />
     <div id="button" class="circle" (click)="buttonClicked()">
