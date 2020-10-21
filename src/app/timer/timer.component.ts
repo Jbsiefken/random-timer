@@ -16,7 +16,6 @@ export class TimerComponent implements OnInit {
   maxHrs: number = 0;
   maxMin: number = 0;
   maxSec: number = 0;
-  interval: number;
   reps: number = 1;
   running: boolean = false;
   message: string;
@@ -41,7 +40,7 @@ export class TimerComponent implements OnInit {
         this.message = "The minimum time is greater than the maximum time!";
       }
       else {
-        this.runTimer;
+        this.runTimer();
       }
     }
   }
@@ -60,9 +59,16 @@ export class TimerComponent implements OnInit {
   //create a random number between min and max time
   //set the timer off after that number of milliseconds
   runTimer(): void {
+    this.running = true;
+    this.message = '';  
     for (let i = 0; i < this.reps; i++){
-      //the time stuff goes here
+      let interval: number = Math.floor(Math.random() * (this.maxTime - this.minTime)) + this.minTime;
+      console.log(`${interval}`);
+      setTimeout(() => {this.message = "Time's up!"}, interval);
+      //add functionality for incrementing timer display
     }
+    this.running = false;
   }
+
 
 }
