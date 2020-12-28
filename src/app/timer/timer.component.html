@@ -13,29 +13,31 @@
         <h4>Minimum Time:</h4>
         <form id="minTime">
             <label for="minHrs">Hours: </label>
-            <input id="minHrs" [(ngModel)]="minHrs" name="minHrs" class="numInput" type="number" min="0" max="99" value="0">
+            <input id="minHrs" [(ngModel)]="minHrs" name="minHrs" class="numInput" type="number" min="0" max="99" >
             <label for="minMin"> Minues: </label>
-            <input id="minMin" [(ngModel)]="minMin" name="minMin" class="numInput" type="number" min="0" max="59" value="0">
+            <input id="minMin" [(ngModel)]="minMin" name="minMin" class="numInput" type="number" min="0" max="59" >
             <Label for="minSec"> Seconds: </Label>
-            <input id="minSec" [(ngModel)]="minSec" name="minSec" class="numInput" type="number" min="0" max="59" value="0">
+            <input id="minSec" [(ngModel)]="minSec" name="minSec" class="numInput" type="number" min="0" max="59" >
         </form>
         <br />
         <h4>Maximum Time:</h4>
         <form id="maxTime">
             <label for="maxHrs">Hours: </label>
-            <input id="maxHrs" [(ngModel)]="maxHrs" name="maxHrs" class="numInput" type="number" min="0" value="0">
+            <input id="maxHrs" [(ngModel)]="maxHrs" name="maxHrs" class="numInput" type="number" min="0" >
             <label for="maxMin"> Minutes: </label>
-            <input id="maxMin" [(ngModel)]="maxMin" name="maxMin" class="numInput" type="number" min="0" max="59" value="0">
+            <input id="maxMin" [(ngModel)]="maxMin" name="maxMin" class="numInput" type="number" min="0" max="59" >
             <Label for="maxSec"> Seconds: </Label>
-            <input id="maxSec" [(ngModel)]="maxSec" name="maxSec" class="numInput" type="number" min="0" max="59" value="0">
+            <input id="maxSec" [(ngModel)]="maxSec" name="maxSec" class="numInput" type="number" min="0" max="59" >
             <label for="reps"> Number of intervals: </label>
-            <input id="reps" [(ngModel)]="reps" name="reps" class="numInput" type="number" min="1" max="99" value="1">
+            <input id="reps" [(ngModel)]="reps" name="reps" class="numInput" type="number" min="1" max="99" >
         </form>
     </div>
     <br />
     <div>
         <h5>{{ message }}</h5>
     </div>
+    <br />
+    <app-time-display></app-time-display>
     <br />
     <div id="button" class="circle" (click)="buttonClicked()">
         Start

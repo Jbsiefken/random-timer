@@ -5,11 +5,13 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TimerComponent } from './timer/timer.component';
+import { TimeDisplayComponent } from './time-display/time-display.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TimerComponent
+    TimerComponent,
+    TimeDisplayComponent
   ],
   imports: [
     BrowserModule,
