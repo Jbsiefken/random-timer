@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TimeDisplayComponent implements OnInit {
 
+  formatted_time: string = "test";
+
   constructor() { }
 
   ngOnInit(): void {
