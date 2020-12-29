@@ -1,17 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, SimpleChanges, OnChanges } from '@angular/core';
+import { Status } from '../Status';
 
 @Component({
   selector: 'app-time-display',
   templateUrl: './time-display.component.html',
   styleUrls: ['./time-display.component.css']
 })
-export class TimeDisplayComponent implements OnInit {
+export class TimeDisplayComponent implements OnChanges {
 
-  formatted_time: string = "test";
+  @Input() status: Status;
+  formatted_time: string;
+  status_message: string = "not yet started";
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnChanges(changes: SimpleChanges): void {
+    if(changes[0]){
+       this.status = changes[0].currentValue;
+    }
+    switch(this.status){
+      case Status.off: {
+        this.status_message = "off";
+      }
+      break;
+      case Status.on: {
+        this.status_message = "on";
+      }
+      break;
+
+      
+    }
   }
 
 }

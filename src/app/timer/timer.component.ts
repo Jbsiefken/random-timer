@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
+import { Status } from '../Status';
 
 @Component({
   selector: 'app-timer',
@@ -19,6 +20,7 @@ export class TimerComponent implements OnInit {
   reps: number = 1;
   running: boolean = false;
   message: string;
+  status: Status = Status.off;
 
   constructor() { }
 
@@ -60,6 +62,7 @@ export class TimerComponent implements OnInit {
   //set the timer off after that number of milliseconds
   runTimer(): void {
     this.running = true;
+    this.status = Status.on;
     this.message = '';  
     for (let i = 0; i < this.reps; i++){
       let interval: number = Math.floor(Math.random() * (this.maxTime - this.minTime)) + this.minTime;

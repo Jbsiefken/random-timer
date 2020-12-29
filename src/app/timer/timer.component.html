@@ -37,7 +37,8 @@
         <h5>{{ message }}</h5>
     </div>
     <br />
-    <app-time-display></app-time-display>
+    <!--display time elapsed in nested component-->
+    <app-time-display [status] = "status"></app-time-display>
     <br />
     <div id="button" class="circle" (click)="buttonClicked()">
         Start
