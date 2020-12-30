@@ -63,14 +63,25 @@ export class TimerComponent implements OnInit {
   runTimer(): void {
     this.running = true;
     this.status = Status.on;
-    this.message = '';  
-    for (let i = 0; i < this.reps; i++){
-      let interval: number = Math.floor(Math.random() * (this.maxTime - this.minTime)) + this.minTime;
-      console.log(`${interval}`);
-      setTimeout(() => {this.message = "Time's up!"}, interval);
-      //add functionality for incrementing timer display
+    this.message = '';
+    this.runInterval(this.reps);
+
+  }
+
+  runInterval(reps: number): void {
+    if (reps == 0){
+      this.message = "boop";
+      this.running = false;
+      this.status = Status.off;
+      return;
     }
-    this.running = false;
+    let interval: number = Math.floor(Math.random() * (this.maxTime - this.minTime)) + this.minTime;
+    console.log(`${interval}`);
+    setTimeout(() => {
+      this.message = `Interval ${this.reps - reps + 1} complete`;
+      this.runInterval(reps-1);
+      return;
+    }, interval);
   }
 
 
