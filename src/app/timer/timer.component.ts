@@ -21,6 +21,7 @@ export class TimerComponent implements OnInit {
   running: boolean = false;
   message: string;
   status: Status = Status.off;
+  interval: any;
 
   constructor() { }
 
@@ -33,7 +34,7 @@ export class TimerComponent implements OnInit {
   //when the button is clicked, convert inputs to milliseconds
   //make sure minTime is less than maxTime
   //if it passes, run the timer
-  buttonClicked(): void {
+  startButton(): void {
 
     if (this.running == false){
       this.minTime = this.getTimeValue(this.minHrs, this.minMin, this.minSec);
@@ -45,6 +46,18 @@ export class TimerComponent implements OnInit {
         this.runTimer();
       }
     }
+  }
+
+  //Pause button
+  pauseButton(){
+    this.status = Status.paused;
+  }
+
+  stopButton(){
+    this.status = Status.off;
+    this.interval = null;
+    this.running = false;
+    clearInterval(this.interval);
   }
 
   //this one will convert hours, minutes, and seconds
@@ -69,19 +82,20 @@ export class TimerComponent implements OnInit {
   }
 
   runInterval(reps: number): void {
+    console.log("runInterval() called")
     if (reps == 0){
       this.message = "boop";
       this.running = false;
       this.status = Status.off;
       return;
     }
-    let interval: number = Math.floor(Math.random() * (this.maxTime - this.minTime)) + this.minTime;
-    console.log(`${interval}`);
-    setTimeout(() => {
+    let _interval: number = Math.floor(Math.random() * (this.maxTime - this.minTime)) + this.minTime;
+    console.log(`${_interval}`);
+    this.interval = setTimeout(() => {
       this.message = `Interval ${this.reps - reps + 1} complete`;
       this.runInterval(reps-1);
       return;
-    }, interval);
+    }, _interval);
   }
 
 

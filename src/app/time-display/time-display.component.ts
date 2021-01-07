@@ -37,6 +37,10 @@ export class TimeDisplayComponent implements OnChanges {
         this.startDisplay();
       }
       break;
+      case Status.paused: {
+        this.status_message = "paused";
+        this.pauseDisplay();
+      }
     }
   }
 
@@ -61,6 +65,12 @@ export class TimeDisplayComponent implements OnChanges {
     clearInterval(this.update_time);
     this.elapsed_time = 0;
     this.formatted_time = this.formatTime(this.elapsed_time);
+  }
+
+  //Pauses the display but leaves elapsed_time
+  pauseDisplay(){
+    clearInterval(this.update_display);
+    clearInterval(this.update_time);
   }
 
   //function called every interval that updates

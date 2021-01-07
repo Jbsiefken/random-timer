@@ -10,11 +10,12 @@
 
 <div style="text-align: center;">
     <div id="timeInput">
+        <h3>{{ status }}</h3>
         <h4>Minimum Time:</h4>
         <form id="minTime">
             <label for="minHrs">Hours: </label>
             <input id="minHrs" [(ngModel)]="minHrs" name="minHrs" class="numInput" type="number" min="0" max="99" >
-            <label for="minMin"> Minues: </label>
+            <label for="minMin"> Minutes: </label>
             <input id="minMin" [(ngModel)]="minMin" name="minMin" class="numInput" type="number" min="0" max="59" >
             <Label for="minSec"> Seconds: </Label>
             <input id="minSec" [(ngModel)]="minSec" name="minSec" class="numInput" type="number" min="0" max="59" >
@@ -40,7 +41,13 @@
     <!--display time elapsed in nested component-->
     <app-time-display [status] = "status"></app-time-display>
     <br />
-    <div id="button" class="circle" (click)="buttonClicked()">
+    <div id="button" class="circle" (click)="startButton()">
         Start
+    </div>
+    <div id="pause" class="circle" (click)="pauseButton()">
+        Pause
+    </div>
+    <div id="stop" class="circle" (click)="stopButton()">
+        Stop
     </div>
 </div>
