@@ -15,6 +15,9 @@ export class TimeDisplayComponent implements OnChanges {
   elapsed_time: number = 0;
   start_time: number;
 
+  update_time: any;
+  update_display: any;
+
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -24,6 +27,9 @@ export class TimeDisplayComponent implements OnChanges {
     switch(this.status){
       case Status.off: {
         this.status_message = "off";
+        if(this.update_display != null){
+          this.stopDisplay();
+        }
       }
       break;
       case Status.on: {
@@ -34,30 +40,32 @@ export class TimeDisplayComponent implements OnChanges {
     }
   }
 
+  //Starts running stopwatch-style display
   startDisplay(){
-    this.start_time = Date.now();
-    /*
-    setTimeout(() => {
-      this.elapsed_time += (Date.now() - this.start_time);
-      console.log(Date.now());
-      console.log(this.elapsed_time);
-      this.formatTime(this.elapsed_time);
-    }, 1000);
-    */
+    this.start_time = Date.now() - this.elapsed_time;
    
-   setInterval(() => {
-      this.elapsed_time += (Date.now() - this.start_time);
-    }, 10);
-    setInterval(() => {
-      this.formatTime(this.elapsed_time);
-    }, 100);
-    
+    //Updates record of amount of time passed
+   this.update_time = setInterval(() => {
+      this.elapsed_time = Date.now() - this.start_time;
+    }, 1);
 
+    //Refreshes the display
+    this.update_display = setInterval(() => {
+      this.formatted_time = this.formatTime(this.elapsed_time);
+    }, 10);
+  }
+
+  //Stops the display and resets elapsed_time value
+  stopDisplay(){
+    clearInterval(this.update_display);
+    clearInterval(this.update_time);
+    this.elapsed_time = 0;
+    this.formatted_time = this.formatTime(this.elapsed_time);
   }
 
   //function called every interval that updates
   //formatted_time based on elapsed_time
-  formatTime(time){
+  formatTime(time): string{
     let hrsTime = time / 3600000;
     let hrs = Math.floor(hrsTime);
     let minTime = (hrsTime - hrs) * 60;
@@ -72,15 +80,11 @@ export class TimeDisplayComponent implements OnChanges {
     let strSec = sec.toString().padStart(2, "0");
     let strMs = ms.toString().padStart(2, "0");
 
-    switch(hrs){
-      case 0: {
-        this.formatted_time = `${strMin}:${strSec}:${strMs}`;
-      }
-      break;
-      default: {
-        this.formatted_time = `${strHrs}:${strMin}:${strSec}:${strMs}`;
-      }
-      break;
+    if(hrs == 0){
+      return `${strMin}:${strSec}:${strMs}`;
+    }
+    else{
+      return `${strHrs}:${strMin}:${strSec}:${strMs}`;
     }
   }
 
