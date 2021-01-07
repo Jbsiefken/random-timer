@@ -54,10 +54,9 @@ export class TimerComponent implements OnInit {
   }
 
   stopButton(){
-    this.status = Status.off;
-    this.interval = null;
-    this.running = false;
     clearInterval(this.interval);
+    this.status = Status.off;
+    this.running = false;
   }
 
   //this one will convert hours, minutes, and seconds
