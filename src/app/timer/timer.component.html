@@ -30,7 +30,7 @@
             <Label for="maxSec"> Seconds: </Label>
             <input id="maxSec" [(ngModel)]="maxSec" name="maxSec" class="numInput" type="number" min="0" max="59" >
             <label for="reps"> Number of intervals: </label>
-            <input id="reps" [(ngModel)]="reps" name="reps" class="numInput" type="number" min="1" max="99" >
+            <input id="reps" [(ngModel)]="total_reps" name="reps" class="numInput" type="number" min="1" max="99" >
         </form>
     </div>
     <br />
@@ -38,10 +38,12 @@
         <h5>{{ message }}</h5>
     </div>
     <br />
+
     <!--display time elapsed in nested component-->
-    <app-time-display [status] = "status"></app-time-display>
+    <app-time-display-bravo [time] = "elapsed_time"></app-time-display-bravo>
     <br />
-    <div id="button" class="circle" (click)="startButton()">
+
+    <div id="start" class="circle" (click)="startButton()">
         Start
     </div>
     <div id="pause" class="circle" (click)="pauseButton()">
@@ -50,4 +52,5 @@
     <div id="stop" class="circle" (click)="stopButton()">
         Stop
     </div>
+
 </div>

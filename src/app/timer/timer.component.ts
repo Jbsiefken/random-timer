@@ -17,11 +17,15 @@ export class TimerComponent implements OnInit {
   maxHrs: number = 0;
   maxMin: number = 0;
   maxSec: number = 0;
-  reps: number = 1;
+  total_reps: number = 1;
+  remaining_reps: number = 1;
+  elapsed_time: number = 0;
+  start_time: number;
   running: boolean = false;
   message: string;
   status: Status = Status.off;
-  interval: any;
+  timeout: any;
+  update_time: any;
 
   constructor() { }
 
@@ -35,7 +39,7 @@ export class TimerComponent implements OnInit {
   //make sure minTime is less than maxTime
   //if it passes, run the timer
   startButton(): void {
-
+    
     if (this.running == false){
       this.minTime = this.getTimeValue(this.minHrs, this.minMin, this.minSec);
       this.maxTime = this.getTimeValue(this.maxHrs, this.maxMin, this.maxSec);
@@ -47,16 +51,20 @@ export class TimerComponent implements OnInit {
       }
     }
   }
-
+  
   //Pause button
   pauseButton(){
+    this.running = false;
     this.status = Status.paused;
+    clearInterval(this.update_time);
+    clearTimeout(this.timeout);
   }
 
   stopButton(){
-    clearInterval(this.interval);
+    clearTimeout(this.timeout);
     this.status = Status.off;
     this.running = false;
+    this.elapsed_time = 0;
   }
 
   //this one will convert hours, minutes, and seconds
@@ -73,29 +81,38 @@ export class TimerComponent implements OnInit {
   //create a random number between min and max time
   //set the timer off after that number of milliseconds
   runTimer(): void {
+    if(this.status == Status.off){
+      this.remaining_reps = this.total_reps;
+    }
     this.running = true;
     this.status = Status.on;
     this.message = '';
-    this.runInterval(this.reps);
-
+    this.start_time = Date.now() - this.elapsed_time;
+    this.runInterval(this.remaining_reps);
   }
 
   runInterval(reps: number): void {
-    console.log("runInterval() called")
+    this.remaining_reps = reps;
     if (reps == 0){
       this.message = "boop";
       this.running = false;
       this.status = Status.off;
+      this.elapsed_time = 0;
       return;
     }
-    let _interval: number = Math.floor(Math.random() * (this.maxTime - this.minTime)) + this.minTime;
-    console.log(`${_interval}`);
-    this.interval = setTimeout(() => {
-      this.message = `Interval ${this.reps - reps + 1} complete`;
+    let interval: number = Math.floor(Math.random() * (this.maxTime - this.minTime)) + this.minTime;
+    console.log(`${interval}`);
+    this.update_time = setInterval(() => {
+      this.elapsed_time = Date.now() - this.start_time;
+    }, 1);
+    this.timeout = setTimeout(() => {
+      console.log("I hope this works!");
+      this.message = `Interval ${this.total_reps - reps + 1} complete`;
+      console.log("interval complete");
+      this.elapsed_time = 0;
       this.runInterval(reps-1);
       return;
-    }, _interval);
+    }, interval-this.elapsed_time);
   }
-
 
 }

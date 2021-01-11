@@ -1,5 +1,4 @@
 import { Component, Input, SimpleChanges, OnChanges } from '@angular/core';
-import { Status } from '../Status';
 
 @Component({
   selector: 'app-time-display-bravo',
@@ -14,13 +13,16 @@ export class TimeDisplayBravoComponent implements OnChanges {
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void {
+    if(changes[0]){
+      this.time = changes[0].currentValue;
+   }
     this.formatted_time = this.formatTime(this.time);
   }
 
   //function called whenever the input 'time' changes
   //formats a raw number to a string describing
   //hours, minutes, seconds, and milliseconds
-  formatTime(time): string{
+  formatTime(time: number): string{
     let hrsTime = time / 3600000;
     let hrs = Math.floor(hrsTime);
     let minTime = (hrsTime - hrs) * 60;

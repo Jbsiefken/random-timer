@@ -21,6 +21,7 @@ export class TimeDisplayComponent implements OnChanges {
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void {
+    console.log("chchchchchchanges");
     if(changes[0]){
        this.status = changes[0].currentValue;
     }
@@ -75,7 +76,7 @@ export class TimeDisplayComponent implements OnChanges {
 
   //function called every interval that updates
   //formatted_time based on elapsed_time
-  formatTime(time): string{
+  formatTime(time: number): string{
     let hrsTime = time / 3600000;
     let hrs = Math.floor(hrsTime);
     let minTime = (hrsTime - hrs) * 60;
