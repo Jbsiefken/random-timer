@@ -21,7 +21,6 @@ export class TimerComponent implements OnInit {
   remaining_reps: number = 1;
   elapsed_time: number = 0;
   start_time: number;
-  running: boolean = false;
   message: string;
   status: Status = Status.off;
   timeout: any;
@@ -40,7 +39,7 @@ export class TimerComponent implements OnInit {
   //if it passes, run the timer
   startButton(): void {
     
-    if (this.running == false){
+    if (this.status != Status.on){
       this.minTime = this.getTimeValue(this.minHrs, this.minMin, this.minSec);
       this.maxTime = this.getTimeValue(this.maxHrs, this.maxMin, this.maxSec);
       if (this.minTime > this.maxTime){
@@ -54,7 +53,6 @@ export class TimerComponent implements OnInit {
   
   //Pause button
   pauseButton(){
-    this.running = false;
     this.status = Status.paused;
     clearInterval(this.update_time);
     clearTimeout(this.timeout);
@@ -62,8 +60,8 @@ export class TimerComponent implements OnInit {
 
   stopButton(){
     clearTimeout(this.timeout);
+    clearInterval(this.update_time);
     this.status = Status.off;
-    this.running = false;
     this.elapsed_time = 0;
   }
 
@@ -84,7 +82,9 @@ export class TimerComponent implements OnInit {
     if(this.status == Status.off){
       this.remaining_reps = this.total_reps;
     }
-    this.running = true;
+    else if(this.status == Status.on){
+      this.elapsed_time = 0;
+    }
     this.status = Status.on;
     this.message = '';
     this.start_time = Date.now() - this.elapsed_time;
@@ -93,24 +93,24 @@ export class TimerComponent implements OnInit {
 
   runInterval(reps: number): void {
     this.remaining_reps = reps;
+    clearInterval(this.update_time);
+    clearTimeout(this.timeout);
     if (reps == 0){
       this.message = "boop";
-      this.running = false;
-      this.status = Status.off;
-      this.elapsed_time = 0;
+      this.stopButton();
       return;
     }
+    let thas = this;
     let interval: number = Math.floor(Math.random() * (this.maxTime - this.minTime)) + this.minTime;
     console.log(`${interval}`);
     this.update_time = setInterval(() => {
       this.elapsed_time = Date.now() - this.start_time;
     }, 1);
     this.timeout = setTimeout(() => {
-      console.log("I hope this works!");
       this.message = `Interval ${this.total_reps - reps + 1} complete`;
       console.log("interval complete");
-      this.elapsed_time = 0;
-      this.runInterval(reps-1);
+      this.remaining_reps -= 1;
+      this.runTimer();
       return;
     }, interval-this.elapsed_time);
   }
