@@ -1,5 +1,5 @@
 export enum Status {
-    off,
-    on,
-    paused
+    off = "off",
+    on = "on",
+    paused = "paused"
 }

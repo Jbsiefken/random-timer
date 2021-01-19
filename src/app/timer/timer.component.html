@@ -39,17 +39,20 @@
     <br />
 
     <!--display time elapsed in nested component-->
-    <app-time-display-bravo [time] = "elapsed_time"></app-time-display-bravo>
+    <app-formatted-time [time] = "elapsed_time"></app-formatted-time>
     <br />
 
-    <div id="start" class="circle" (click)="startButton()">
+    <div *ngIf="status != 'on'" id="start" class="circle" (click)="startButton()">
         Start
     </div>
-    <div id="pause" class="circle" (click)="pauseButton()">
+    <div *ngIf="status == 'on'" id="pause" class="circle" (click)="pauseButton()">
         Pause
     </div>
-    <div id="stop" class="circle" (click)="stopButton()">
+    <div *ngIf="status != 'off'" id="stop" class="circle" (click)="stopButton()">
         Stop
     </div>
+    <br />
+
+    <app-result-list [result] = "result"></app-result-list>
 
 </div>

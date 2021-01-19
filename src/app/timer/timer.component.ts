@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
 import { Status } from '../Status';
+import { TimeFormatter } from '../time-formatter';
 
 @Component({
   selector: 'app-timer',
@@ -25,13 +26,11 @@ export class TimerComponent implements OnInit {
   status: Status = Status.off;
   timeout: any;
   update_time: any;
+  result: number;
 
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  fixBigNumbers(): void {
   }
 
   //when the button is clicked, convert inputs to milliseconds
@@ -47,6 +46,7 @@ export class TimerComponent implements OnInit {
       }
       else {
         this.runTimer();
+        this.result = null;
       }
     }
   }
@@ -107,8 +107,7 @@ export class TimerComponent implements OnInit {
       this.elapsed_time = Date.now() - this.start_time;
     }, 1);
     this.timeout = setTimeout(() => {
-      this.message = `Interval ${this.total_reps - reps + 1} complete`;
-      console.log("interval complete");
+      this.result = interval;
       this.remaining_reps -= 1;
       this.runTimer();
       return;
