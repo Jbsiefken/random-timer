@@ -3,4 +3,65 @@
 
 body {
     line-height: 1.6;
+    background-color: beige;
+    font-family: 'M PLUS 1p', sans-serif;
+}
+
+#timer {
+    position: relative;
+    top: 30px;
+}
+
+#banner {
+    font-size: 50px;
+}
+
+.numInput {
+    width: 45px;
+}
+
+label {
+    padding-left: 5px;
+}
+
+#message {
+    height: 30px;
+    border-style: solid;
+    border-color: transparent;
+    font-weight: bold;
+}
+
+#controls {
+    height: 50px;
+    width: 60px;
+    margin: auto;
+}
+
+.control {
+    cursor: pointer;
+    background-color:skyblue;
+    margin: 5px 5px 5px 5px;
+}
+
+#display {
+    font-size: 50px;
+    width: 300px;
+    margin: auto;
+    background-color: black;
+    color: lime;
+}
+
+#result-component {
+    text-align: center;
+}
+
+#result-list {
+    margin: auto;
+    height: 200px;
+    width: 400px;
+    overflow: auto;
+    border: black;
+    border-style: solid;
+    color: white;
+    background-color: black;
 }

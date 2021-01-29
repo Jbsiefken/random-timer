@@ -1,5 +1,8 @@
-<div>
-    <p *ngFor='let item of list'>
-        <app-formatted-time [time] = "item"></app-formatted-time>
-    </p>
+<div id="result-component" *ngIf="list.length">
+    <h4 id="list-message">Completed Intervals:</h4>
+    <div id="result-list">
+        <p *ngFor='let item of list'>
+            <app-formatted-time [time] = "item"></app-formatted-time>
+        </p>
+    </div>
 </div>

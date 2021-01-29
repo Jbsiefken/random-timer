@@ -1,6 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
 import { Status } from '../Status';
-import { TimeFormatter } from '../time-formatter';
 
 @Component({
   selector: 'app-timer',
@@ -45,8 +44,11 @@ export class TimerComponent implements OnInit {
         this.message = "The minimum time is greater than the maximum time!";
       }
       else {
+        if (this.status != "paused")
+        {
+          this.result = null;
+        }
         this.runTimer();
-        this.result = null;
       }
     }
   }
@@ -81,12 +83,12 @@ export class TimerComponent implements OnInit {
   runTimer(): void {
     if(this.status == Status.off){
       this.remaining_reps = this.total_reps;
+      this.message = ' ';
     }
     else if(this.status == Status.on){
       this.elapsed_time = 0;
     }
     this.status = Status.on;
-    this.message = '';
     this.start_time = Date.now() - this.elapsed_time;
     this.runInterval(this.remaining_reps);
   }
@@ -96,7 +98,7 @@ export class TimerComponent implements OnInit {
     clearInterval(this.update_time);
     clearTimeout(this.timeout);
     if (reps == 0){
-      this.message = "boop";
+      this.message = "Time's Up!";
       this.stopButton();
       return;
     }
@@ -109,6 +111,7 @@ export class TimerComponent implements OnInit {
     this.timeout = setTimeout(() => {
       this.result = interval;
       this.remaining_reps -= 1;
+      this.message = `Interval #${this.total_reps - this.remaining_reps} Complete!`;
       this.runTimer();
       return;
     }, interval-this.elapsed_time);
