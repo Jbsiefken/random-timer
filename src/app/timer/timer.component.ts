@@ -43,10 +43,16 @@ export class TimerComponent implements OnInit {
       if (this.minTime > this.maxTime){
         this.message = "The minimum time is greater than the maximum time!";
       }
+      else if (this.maxTime <= 0){
+        this.message = "Choose a Maximum Time!"
+      }
       else {
         if (this.status != "paused")
         {
           this.result = null;
+        }
+        if (this.minTime < 0){
+          this.minTime = 0;
         }
         this.runTimer();
       }

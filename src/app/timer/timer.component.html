@@ -39,13 +39,13 @@
     <br />
     <div id="controls">
         <div *ngIf="status != 'on'" id="start" class="control" (click)="startButton()">
-            Start
+            <i class="fas fa-play"></i>
         </div>
         <div *ngIf="status == 'on'" id="pause" class="control" (click)="pauseButton()">
-            Pause
+            <i class="fas fa-pause"></i>
         </div>
         <div *ngIf="status != 'off'" id="stop" class="control" (click)="stopButton()">
-            Stop
+            <i class="fas fa-stop"></i>
         </div>
     </div>
     <br />
