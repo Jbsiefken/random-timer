@@ -1,13 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
-@keyframes bluegreen {
-    0% {background-color: #66ffff;}
-    33% {background-color: #66ff99;}
-    66% {background-color: rgb(255, 107, 248);}
-    100% {background-color: #66ffff;}
-}
-
 @keyframes greenred {
     0% {background-color: lime;}
     50% {background-color: yellow;}
@@ -25,6 +18,13 @@
     100% {background-image: linear-gradient(45deg, white, black); color: transparent;}
 }
 
+@keyframes flash {
+    0% {opacity: 100%;}
+    49% {opacity: 100%;}
+    50% {opacity: 0%;}
+    100% {opacity: 0%;}
+}
+
 html {
     margin: 0%;
     height: 100%;
@@ -35,15 +35,12 @@ body {
     font-family: 'M PLUS 1p', sans-serif;
     margin: 0%;
     height: 100%;
-    /*
-    animation-name: bluegreen;
-    animation-duration: 20s;
-    animation-iteration-count: infinite;
-    */
 }
 
 .background {
+    position: fixed;
     height: 100%;
+    width: 100%;
     background-color: lime;
 }
 
@@ -54,6 +51,12 @@ body {
 #timer {
     position: relative;
     top: 30px;
+    background-color: rgb(204, 204, 204);
+    border-style: solid;
+    border-color: rgb(131, 131, 131);
+    border-radius: 10px;
+    height: 675px;
+    max-width: 900;
 }
 
 .shaking {
@@ -62,8 +65,14 @@ body {
     animation-iteration-count: infinite;
 }
 
+.flashing {
+    animation-name: flash;
+    animation-duration: .5s;
+    animation-iteration-count: infinite;
+}
+
 #banner {
-    font-size: 50px;
+    font-size: 40px;
 }
 
 .numInput {
@@ -74,8 +83,19 @@ label {
     padding-left: 5px;
 }
 
+.input-form {
+    background-color: white;
+    max-width: 400px;
+    margin: auto;
+    padding-top: 3px;
+    border-style: solid;
+    border-color: rgb(153, 153, 153);
+    border-width: 1px;
+
+}
+
 #message {
-    height: 30px;
+    height: 40px;
     border-style: solid;
     border-color: transparent;
     font-weight: bold;
@@ -93,7 +113,6 @@ label {
     cursor: pointer;
     margin: 5px 5px 5px 5px;
     display: inline-block;
-    background-image: linear-gradient(45deg, black, #6600ff);
     background-clip: text;
     color: black;
     transition: color .1s;
@@ -111,6 +130,8 @@ label {
     margin: auto;
     background-color: black;
     color: lime;
+    border-style: solid;
+    border-color: rgb(241, 241, 241);
 }
 
 #result-component {
@@ -119,11 +140,11 @@ label {
 
 #result-list {
     margin: auto;
-    height: 200px;
+    height: 160px;
     width: 400px;
     overflow: auto;
-    border: black;
     border-style: solid;
+    border-color: rgb(241, 241, 241);
     color: white;
     background-color: black;
 }
