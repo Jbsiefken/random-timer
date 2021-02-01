@@ -1,15 +1,65 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
+@keyframes bluegreen {
+    0% {background-color: #66ffff;}
+    33% {background-color: #66ff99;}
+    66% {background-color: rgb(255, 107, 248);}
+    100% {background-color: #66ffff;}
+}
+
+@keyframes greenred {
+    0% {background-color: lime;}
+    50% {background-color: yellow;}
+    75% {background-color: orange;}
+    100% {background-color: red;}
+}
+
+@keyframes shake {
+    0% {transform: translateX(-2px);}
+    100% {transform: translateX(2px);}
+}
+
+@keyframes shimmer {
+    0% {background-image: linear-gradient(45deg, black, white); color: transparent;}
+    100% {background-image: linear-gradient(45deg, white, black); color: transparent;}
+}
+
+html {
+    margin: 0%;
+    height: 100%;
+}
+
 body {
     line-height: 1.6;
-    background-color: beige;
     font-family: 'M PLUS 1p', sans-serif;
+    margin: 0%;
+    height: 100%;
+    /*
+    animation-name: bluegreen;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    */
+}
+
+.background {
+    height: 100%;
+    background-color: lime;
+}
+
+.greenred {
+    animation-name: greenred;
 }
 
 #timer {
     position: relative;
     top: 30px;
+}
+
+.shaking {
+    animation-name: shake;
+    animation-duration: .05s;
+    animation-iteration-count: infinite;
 }
 
 #banner {
@@ -29,11 +79,6 @@ label {
     border-style: solid;
     border-color: transparent;
     font-weight: bold;
-}
-
-@keyframes shimmer {
-    0% {background-image: linear-gradient(45deg, black, white); color: transparent;}
-    100% {background-image: linear-gradient(45deg, white, black); color: transparent;}
 }
 
 #controls {
