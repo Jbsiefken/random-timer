@@ -1,7 +1,7 @@
 <div id="result-component">
     <h4 id="list-message">Completed Intervals:</h4>
     <div id="result-list">
-        <p *ngFor='let item of list'>
+        <p *ngFor='let item of list' style="font-family: 'VT323', monospace; line-height: 1;">
             <app-formatted-time [time] = "item"></app-formatted-time>
         </p>
     </div>

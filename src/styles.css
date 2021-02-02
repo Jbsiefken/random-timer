@@ -2,9 +2,8 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
 @keyframes greenred {
-    0% {background-color: lime;}
-    50% {background-color: yellow;}
-    75% {background-color: orange;}
+    0%,20% {background-color: lime;}
+    70% {background-color: rgb(255, 222, 0);}
     100% {background-color: red;}
 }
 
@@ -51,7 +50,7 @@ body {
 #timer {
     position: relative;
     top: 30px;
-    background-color: rgb(204, 204, 204);
+    background-color: #a5a59b;
     border-style: solid;
     border-color: rgb(131, 131, 131);
     border-radius: 10px;
@@ -72,7 +71,8 @@ body {
 }
 
 #banner {
-    font-size: 40px;
+    font-size: 43px;
+    font-family: 'Russo One', sans-serif;
 }
 
 .numInput {
@@ -84,14 +84,21 @@ label {
 }
 
 .input-form {
-    background-color: white;
+    background-color:#1900ff;
+    color: white;
     max-width: 400px;
     margin: auto;
     padding-top: 3px;
     border-style: solid;
-    border-color: rgb(153, 153, 153);
+    border-color: rgb(22, 22, 22);
     border-width: 1px;
+    border-radius: 5px;
+    margin-bottom: 2px;
 
+}
+
+#num-intervals {
+    background-color:#df8600;
 }
 
 #message {
@@ -121,17 +128,19 @@ label {
 .control:hover {
     animation-name: shimmer;
     animation-duration: .07s;
-    color: blue;
+    color: #1900ff;
 }
 
 #display {
-    font-size: 50px;
+    font-family: 'VT323', monospace;
+    font-size: 60px;
+    line-height: 1.2;
     width: 300px;
     margin: auto;
-    background-color: black;
-    color: lime;
+    background-color: rgb(181, 204, 54);
+    color: rgb(0, 68, 0);
     border-style: solid;
-    border-color: rgb(241, 241, 241);
+    border-color:  rgb(131, 131, 131);
 }
 
 #result-component {
@@ -140,11 +149,12 @@ label {
 
 #result-list {
     margin: auto;
+    font-size: 25px;
     height: 160px;
     width: 400px;
     overflow: auto;
     border-style: solid;
-    border-color: rgb(241, 241, 241);
-    color: white;
-    background-color: black;
+    border-color:  rgb(131, 131, 131);
+    color: rgb(0, 68, 0);
+    background-color: rgb(181, 204, 54);
 }
