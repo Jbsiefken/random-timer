@@ -38,6 +38,9 @@ export class TimerComponent implements OnInit {
   running: boolean = false;
   paused: boolean = false;
 
+  //is the audio control on
+  soundOn: boolean = true;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -156,10 +159,31 @@ export class TimerComponent implements OnInit {
       this.remaining_reps -= 1;
       this.message = `Interval #${this.total_reps - this.remaining_reps} Complete!`;
       this.running = false;
+      this.playSound();
       //starts sequence over with decreased reps
       this.runTimer();
       return;
     }, interval-this.elapsed_time);
+  }
+
+  toggleSound(){
+    this.soundOn = !this.soundOn;
+  }
+
+  playSound(){
+    if(!this.soundOn){
+      return;
+    }
+    let audio = new Audio();
+    let sounds: string[] = ['../../../assets/Blop-Mark_DiAngelo-79054334.mp3', 
+                            '../../../assets/Frying Pan Hit-SoundBible.com-2141771342.mp3',
+                            '../../../assets/glass_ping-Go445-1207030150.mp3',
+                            '../../../assets/Jab-SoundBible.com-1806727891.mp3',
+                            '../../../assets/Woosh-Mark_DiAngelo-4778593.mp3'];
+    let selection = Math.floor(Math.random()*(sounds.length)+1) - 1;
+    audio.src = sounds[selection];
+    audio.load();
+    audio.play();
   }
 
 }

@@ -9,7 +9,7 @@
         <div id="banner" [class.shaking]='timeUp'>
             Random Timer
         </div>
-
+        
         <h3>Minimum Time:</h3>
         <form id="minTime" class="input-form">
             <label for="minHrs">Hours: </label>
@@ -34,16 +34,16 @@
             <input id="reps" [(ngModel)]="total_reps" name="reps" class="numInput" type="number" min="1" max="99" >
         </form>
     </div>
-
+    
     <div id="message">
         <h4 style="font-weight: bold;" [class.flashing]='timeUp'>{{ message }}</h4>
     </div>
-
+    
     <!--display time elapsed in nested component-->
     <div id="display">
         <app-formatted-time [time] = "elapsed_time"></app-formatted-time>
     </div>
-
+    
     <div id="controls">
         <div *ngIf="status != 'on'" id="start" class="control" (click)="startButton()">
             <i class="fas fa-play"></i>
@@ -54,10 +54,13 @@
         <div *ngIf="status != 'off'" id="stop" class="control" (click)="stopButton()">
             <i class="fas fa-stop"></i>
         </div>
+        <div class="control">
+            <i class="fas" (click)="toggleSound()" [ngClass]="soundOn ? 'fa-volume-up' : 'fa-volume-mute'"></i>
+        </div>
     </div>
     <br />
-
+    
     <!--displays a list of completed intervals-->
-    <app-result-list [result] = "result"></app-result-list>
+    <div><app-result-list [result] = "result"></app-result-list></div>
 
 </div>
