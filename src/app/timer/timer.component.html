@@ -54,7 +54,7 @@
         <div *ngIf="status != 'off'" id="stop" class="control" (click)="stopButton()">
             <i class="fas fa-stop"></i>
         </div>
-        <div class="control">
+        <div class="control control-sound">
             <i class="fas" (click)="toggleSound()" [ngClass]="soundOn ? 'fa-volume-up' : 'fa-volume-mute'"></i>
         </div>
     </div>
@@ -63,4 +63,8 @@
     <!--displays a list of completed intervals-->
     <div><app-result-list [result] = "result"></app-result-list></div>
 
+    <div class="footer">
+        <a href="https://github.com/Jbsiefken/random-timer">Source (GitHub)</a><br />
+        <a href="https://joshsiefken.azurewebsites.net/contact">Contact Me</a>
+    </div>
 </div>

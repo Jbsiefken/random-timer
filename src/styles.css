@@ -76,11 +76,12 @@ label {
 .timer {
     position: relative;
     top: 30px;
+    bottom: 20px;
     background-color: #a5a59b;
     border-style: solid;
     border-color: rgb(131, 131, 131);
     border-radius: 10px;
-    height: 675px;
+    height: 900px;
     max-width: 900;
 }
 
@@ -94,6 +95,13 @@ label {
     border-style: solid;
     border-color: transparent;
     font-weight: bold;
+}
+
+.footer {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 /*|| form area */
