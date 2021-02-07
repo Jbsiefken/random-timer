@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
+
+/*|| Animations */
 @keyframes greenred {
     0%,20% {background-color: lime;}
     70% {background-color: rgb(255, 222, 0);}
@@ -24,42 +26,8 @@
     100% {opacity: 0%;}
 }
 
-html {
-    margin: 0%;
-    height: 100%;
-}
-
-body {
-    line-height: 1.6;
-    font-family: 'M PLUS 1p', sans-serif;
-    margin: 0%;
-    height: 100%;
-}
-
-input {
-    border-color:  rgb(131, 131, 131);
-}
-
-.background {
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    background-color: lime;
-}
-
 .greenred {
     animation-name: greenred;
-}
-
-#timer {
-    position: relative;
-    top: 30px;
-    background-color: #a5a59b;
-    border-style: solid;
-    border-color: rgb(131, 131, 131);
-    border-radius: 10px;
-    height: 675px;
-    max-width: 900;
 }
 
 .shaking {
@@ -74,12 +42,21 @@ input {
     animation-iteration-count: infinite;
 }
 
-#banner {
-    font-size: 43px;
-    font-family: 'Russo One', sans-serif;
+/*|| basic elements */
+html {
+    margin: 0%;
+    height: 100%;
 }
 
-.numInput {
+body {
+    line-height: 1.6;
+    font-family: 'M PLUS 1p', sans-serif;
+    margin: 0%;
+    height: 100%;
+}
+
+input {
+    border-color:  rgb(131, 131, 131);
     width: 45px;
 }
 
@@ -87,6 +64,39 @@ label {
     padding-left: 5px;
 }
 
+/*|| colored backdrop */
+.background {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: lime;
+}
+
+/*|| timer main body */
+.timer {
+    position: relative;
+    top: 30px;
+    background-color: #a5a59b;
+    border-style: solid;
+    border-color: rgb(131, 131, 131);
+    border-radius: 10px;
+    height: 675px;
+    max-width: 900;
+}
+
+.banner {
+    font-size: 43px;
+    font-family: 'Russo One', sans-serif;
+}
+
+.message {
+    height: 40px;
+    border-style: solid;
+    border-color: transparent;
+    font-weight: bold;
+}
+
+/*|| form area */
 .input-form {
     background-color:#1900ff;
     color: white;
@@ -98,21 +108,14 @@ label {
     border-width: 1px;
     border-radius: 5px;
     margin-bottom: 2px;
-
 }
 
-#num-intervals {
+.intervals {
     background-color:#df8600;
 }
 
-#message {
-    height: 40px;
-    border-style: solid;
-    border-color: transparent;
-    font-weight: bold;
-}
-
-#controls {
+/*|| controls */
+.controls {
     height: 50px;
     width: 150px;
     margin: auto;
@@ -135,30 +138,29 @@ label {
     color: #1900ff;
 }
 
-#display {
+/*|| display spaces */
+.display {
     font-family: 'VT323', monospace;
+    background-color: rgb(181, 204, 54);
+    color: rgb(0, 68, 0);
+    border-color:  rgb(131, 131, 131);
+    margin: auto;
+    border-style: solid;
+}
+
+.time-display {
     font-size: 60px;
     line-height: 1.2;
     width: 300px;
-    margin: auto;
-    background-color: rgb(181, 204, 54);
-    color: rgb(0, 68, 0);
-    border-style: solid;
-    border-color:  rgb(131, 131, 131);
 }
 
-#result-component {
+.result-component {
     text-align: center;
 }
 
-#result-list {
-    margin: auto;
+.result-list {
     font-size: 25px;
     height: 160px;
     width: 400px;
     overflow: auto;
-    border-style: solid;
-    border-color:  rgb(131, 131, 131);
-    color: rgb(0, 68, 0);
-    background-color: rgb(181, 204, 54);
 }

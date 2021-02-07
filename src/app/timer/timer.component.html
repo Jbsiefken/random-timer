@@ -4,47 +4,47 @@
 'background-color': timeUp ? 'red' : 'lime',
 'animation-iteration-count': total_reps}"></div>
 
-<div class="container" id="timer" style="text-align: center;">
+<div class="container timer" style="text-align: center;">
     <div id="timeInput">
-        <div id="banner" [class.shaking]='timeUp'>
+        <div class="banner" [class.shaking]='timeUp'>
             Random Timer
         </div>
         
         <h3>Minimum Time:</h3>
         <form id="minTime" class="input-form">
             <label for="minHrs">Hours: </label>
-            <input id="minHrs" [(ngModel)]="minHrs" name="minHrs" class="numInput" type="number" min="0" max="99" ><span>  </span>
+            <input id="minHrs" [(ngModel)]="minHrs" name="minHrs" type="number" min="0" max="99" ><span>  </span>
             <label for="minMin"> Minutes: </label>
-            <input id="minMin" [(ngModel)]="minMin" name="minMin" class="numInput" type="number" min="0" max="59" ><span>  </span>
+            <input id="minMin" [(ngModel)]="minMin" name="minMin" type="number" min="0" max="59" ><span>  </span>
             <Label for="minSec"> Seconds: </Label>
-            <input id="minSec" [(ngModel)]="minSec" name="minSec" class="numInput" type="number" min="0" max="59" >
+            <input id="minSec" [(ngModel)]="minSec" name="minSec" type="number" min="0" max="59" >
         </form>
         
         <h3>Maximum Time:</h3>
         <form id="maxTime" class="input-form">
             <label for="maxHrs">Hours: </label>
-            <input id="maxHrs" [(ngModel)]="maxHrs" name="maxHrs" class="numInput" type="number" min="0" >
+            <input id="maxHrs" [(ngModel)]="maxHrs" name="maxHrs" type="number" min="0" >
             <label for="maxMin"> Minutes: </label>
-            <input id="maxMin" [(ngModel)]="maxMin" name="maxMin" class="numInput" type="number" min="0" max="59" >
+            <input id="maxMin" [(ngModel)]="maxMin" name="maxMin" type="number" min="0" max="59" >
             <Label for="maxSec"> Seconds: </Label>
-            <input id="maxSec" [(ngModel)]="maxSec" name="maxSec" class="numInput" type="number" min="0" max="59" >
+            <input id="maxSec" [(ngModel)]="maxSec" name="maxSec" type="number" min="0" max="59" >
         </form>
-        <form id="num-intervals" class="input-form">
+        <form class="input-form intervals">
             <label for="reps"> Number of intervals: </label>
-            <input id="reps" [(ngModel)]="total_reps" name="reps" class="numInput" type="number" min="1" max="99" >
+            <input id="reps" [(ngModel)]="total_reps" name="reps" type="number" min="1" max="99" >
         </form>
     </div>
     
-    <div id="message">
+    <div class="message">
         <h4 style="font-weight: bold;" [class.flashing]='timeUp'>{{ message }}</h4>
     </div>
     
     <!--display time elapsed in nested component-->
-    <div id="display">
+    <div class="display time-display">
         <app-formatted-time [time] = "elapsed_time"></app-formatted-time>
     </div>
     
-    <div id="controls">
+    <div class="controls">
         <div *ngIf="status != 'on'" id="start" class="control" (click)="startButton()">
             <i class="fas fa-play"></i>
         </div>
