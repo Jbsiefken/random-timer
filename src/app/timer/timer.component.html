@@ -4,14 +4,14 @@
 'background-color': timeUp ? 'red' : 'lime',
 'animation-iteration-count': total_reps}"></div>
 
-<div class="container timer" style="text-align: center;">
-    <div id="timeInput">
+<div class="timer" style="text-align: center;">
+    <div class="timeInput">
         <div class="banner" [class.shaking]='timeUp'>
             Random Timer
         </div>
         
         <h3>Minimum Time:</h3>
-        <form id="minTime" class="input-form">
+        <form id="minTime" class="input-form" (keyup.enter)="startButton()">
             <label for="minHrs">Hours: </label>
             <input id="minHrs" [(ngModel)]="minHrs" name="minHrs" type="number" min="0" max="99" ><span>  </span>
             <label for="minMin"> Minutes: </label>
@@ -21,7 +21,7 @@
         </form>
         
         <h3>Maximum Time:</h3>
-        <form id="maxTime" class="input-form">
+        <form id="maxTime" class="input-form" (keyup.enter)="startButton()">
             <label for="maxHrs">Hours: </label>
             <input id="maxHrs" [(ngModel)]="maxHrs" name="maxHrs" type="number" min="0" >
             <label for="maxMin"> Minutes: </label>
@@ -29,7 +29,7 @@
             <Label for="maxSec"> Seconds: </Label>
             <input id="maxSec" [(ngModel)]="maxSec" name="maxSec" type="number" min="0" max="59" >
         </form>
-        <form class="input-form intervals">
+        <form class="input-form intervals" (keyup.enter)="startButton()">
             <label for="reps"> Number of intervals: </label>
             <input id="reps" [(ngModel)]="total_reps" name="reps" type="number" min="1" max="99" >
         </form>

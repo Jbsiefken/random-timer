@@ -82,12 +82,14 @@ hr {
     position: relative;
     top: 30px;
     bottom: 20px;
+    margin: auto;
     background-color: #a5a59b;
     border-style: solid;
     border-color: rgb(131, 131, 131);
     border-radius: 10px;
     height: 900px;
-    max-width: 900;
+    max-width: 80%;
+    width: 60%;
 }
 
 .banner {
@@ -176,4 +178,55 @@ hr {
     height: 160px;
     width: 400px;
     overflow: auto;
+}
+
+/*|| mobile styles */
+@media (max-width: 900px){
+    .timer {
+        width: 100vw;
+        margin: 0;
+        right: 0;
+        border-radius: 0;
+        height: 140vh;
+        max-width: none;
+    }
+
+    .banner {
+        font-size: 9vh;
+        line-height: 1;
+    }
+
+    .input-form {
+        font-size: 3vh;
+    }
+
+    .controls {
+        width: 100%;
+        background-color:rgba(0, 0, 0, 0.445);
+        position: fixed;
+        height: 10%;
+        margin: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+    }
+
+    .control {
+        font-size: 6vh;
+    }
+
+    .display {
+        width: 85%;
+        
+    }
+
+    .time-display {
+        height: 18%;
+        font-size: 17vw;
+    }
+
+    .footer {
+        position: relative;
+        margin-top: 12vh;
+    }
 }
