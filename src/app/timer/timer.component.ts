@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
-import { Status } from '../Status';
+import { Status } from '../status';
 
 @Component({
   selector: 'app-timer',
