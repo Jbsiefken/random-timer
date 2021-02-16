@@ -1,12 +1,12 @@
-import { Component, Input, Output, EventEmitter, OnInit, inject} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Status } from '../status';
 
 @Component({
-  selector: 'app-timer',
-  templateUrl: './timer.component.html',
-  styleUrls: ['./timer.component.css']
+  selector: 'app-darktimer',
+  templateUrl: './darktimer.component.html',
+  styleUrls: ['./darktimer.component.css']
 })
-export class TimerComponent implements OnInit {
+export class DarktimerComponent implements OnInit {
 
   //important variables
   minTime: number;

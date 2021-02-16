@@ -1,0 +1,23 @@
+
+.timer {
+    background-color: rgb(131, 131, 131);
+}
+
+.background {
+    background-color: rgb(54, 54, 54);
+}
+
+.display {
+    color: lime;
+    background-color: rgb(34, 34, 34);
+    border-color: #a5a59b;
+}
+
+.input-form {
+    background-color: rgb(34, 34, 34);
+    color: lime;
+}
+
+a {
+    color: lime;
+}

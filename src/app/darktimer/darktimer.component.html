@@ -1,10 +1,10 @@
 
-<div class="background" [class.greenred]='running||paused' [ngStyle]="{'animation-duration': maxTime + 'ms',
-'animation-play-state': paused ? 'paused' : 'running', 
-'background-color': timeUp ? 'red' : 'lime',
-'animation-iteration-count': total_reps}"></div>
+<div class="background"></div>
 
-<div class="timer" style="text-align: center;">
+<div class="timer" style="text-align: center;" [class.greenred-border]='running||paused' [ngStyle]="{'animation-duration': maxTime + 'ms',
+'animation-play-state': paused ? 'paused' : 'running', 
+'border-color': timeUp ? 'red' : 'lime',
+'animation-iteration-count': total_reps}">
     <div class="timeInput">
         <div class="banner" [class.shaking]='timeUp'>
             Random Timer
@@ -29,7 +29,7 @@
             <Label for="maxSec"> Seconds: </Label>
             <input id="maxSec" [(ngModel)]="maxSec" name="maxSec" type="number" min="0" max="59" >
         </form>
-        <form class="input-form intervals" (keyup.enter)="startButton()">
+        <form class="input-form" (keyup.enter)="startButton()">
             <label for="reps"> Number of intervals: </label>
             <input id="reps" [(ngModel)]="total_reps" name="reps" type="number" min="1" max="99" >
         </form>
@@ -63,15 +63,16 @@
     <!--displays a list of completed intervals-->
     <div >    
         <h4 id="list-message">Completed Intervals:</h4>
-        <div class="display result-list">
+        <div class="display result-list">     
+            <h4 id="list-message">Completed Intervals:</h4>
             <app-result-list [result] = "result"></app-result-list>
         </div>
     </div>
-
+    
     <div class="footer">
         <hr>
         <a href="https://github.com/Jbsiefken/random-timer">Source (GitHub)</a><br />
         <a href="https://joshsiefken.azurewebsites.net/contact">Contact Me</a><br />
-        <a routerLink="/">Dark Mode</a>
+        <a routerLink="/classic">Random Timer Classic</a>
     </div>
 </div>

@@ -9,6 +9,12 @@
     100% {background-color: red;}
 }
 
+@keyframes greenred-border {
+    0%,20% {border-color: lime;}
+    70% {border-color: rgb(255, 222, 0);}
+    100% {border-color: red;}
+}
+
 @keyframes shake {
     0% {transform: translateX(-2px);}
     100% {transform: translateX(2px);}
@@ -28,6 +34,10 @@
 
 .greenred {
     animation-name: greenred;
+}
+
+.greenred-border {
+    animation-name: greenred-border;
 }
 
 .shaking {
@@ -67,6 +77,10 @@ label {
 hr {
     width: 250px;
     border-color:  rgb(131, 131, 131);
+}
+
+a {
+    color: black;
 }
 
 /*|| colored backdrop */

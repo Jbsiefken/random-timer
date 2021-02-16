@@ -7,18 +7,20 @@ import { AppComponent } from './app.component';
 import { TimerComponent } from './timer/timer.component';
 import { ResultListComponent } from './result-list/result-list.component';
 import { FormattedTimeComponent } from './formatted-time/formatted-time.component';
+import { DarktimerComponent } from './darktimer/darktimer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TimerComponent,
     ResultListComponent,
-    FormattedTimeComponent
+    FormattedTimeComponent,
+    DarktimerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,    
   ],
   providers: [],
   bootstrap: [AppComponent]
